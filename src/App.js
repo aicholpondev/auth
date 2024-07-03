@@ -1,11 +1,14 @@
 import './App.css';
 // import {Route,Routes} from "react-router-dom";
-import AuthForm from "./components/AuthForm/AuthForm";
+// import AuthForm from "./components/AuthForm/AuthForm";
+import RegisterForm from "./components/RegisterForm/RegisterForm";
 
 function App() {
   return (
     <div className="App">
-      <AuthForm/>
+      {/*<AuthForm/>*/}
+        <RegisterForm/>
+
 
     {/*  <Routes>*/}
     {/*    <Route path="/" element={<AuthForm/>}/>*/}

@@ -1,6 +1,5 @@
 import img from "../../assets/image/lorby-img.png";
 import {useFormik} from "formik";
-import {useState} from "react";
 
 export default function AuthForm(){
     const formik = useFormik({
