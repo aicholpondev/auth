@@ -1,0 +1,56 @@
+.auth{
+  width: 90%;
+  margin: 0 auto;
+  &__general{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 3rem;
+    &--img{
+      h1{
+        font-size: 48px;
+        font-weight: 500;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      p{
+        font-size: 28px;
+        font-weight: 400;
+        text-align: center;
+      }
+    }
+    &--login{
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      h2{
+        font-size: 32px;
+        font-weight: 500;
+        text-align: center;
+      }
+      input{
+        background: #F8F8F8;
+        padding: 13px 16px 13px 16px;
+        gap: 8px;
+        border-radius: 12px ;
+        opacity: 0px;
+        border: none;
+
+      }
+      button{
+        background: #292929;
+        padding: 13px 16px 13px 16px;
+        gap: 0px;
+        border-radius: 12px ;
+        opacity: 0px;
+        color: white;
+      }
+      h3{
+        font-size: 16px;
+        font-weight: 500;
+        text-align: center;
+      }
+
+    }
+  }
+}
