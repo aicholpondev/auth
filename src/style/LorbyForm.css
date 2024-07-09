@@ -1,0 +1,19 @@
+.lorby__general {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.lorby__general h1 {
+  font-size: 48px;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+.lorby__general p {
+  font-size: 28px;
+  font-weight: 400;
+}
+
+/*# sourceMappingURL=LorbyForm.css.map */

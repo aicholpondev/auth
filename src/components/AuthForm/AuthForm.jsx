@@ -1,7 +1,10 @@
 import img from "../../assets/image/lorby-img.png";
 import {useFormik} from "formik";
+ // import RegisterForm from "../RegisterForm/RegisterForm";
+
 
 export default function AuthForm(){
+
     const formik = useFormik({
         initialValues:{
             email:"",
@@ -36,7 +39,12 @@ export default function AuthForm(){
                         onBlur={formik.handleBlur}
                     />
                     <button>Войти</button>
-                    <h3>У меня еще нет аккаунта</h3>
+
+                        <h3 >У меня еще нет аккаунта</h3>
+
+
+
+
                 </div>
             </div>
         </section>
