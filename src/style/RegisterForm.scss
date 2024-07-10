@@ -2,8 +2,16 @@
   width: 90%;
   margin: 0 auto;
 &__goback{
-  text-align: center;
+  background-color: transparent;
+  border: none;
   display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 16px;
+  font-weight: 400;
+  position: absolute;
+  top: 1.5rem;
+  left: 51%;
 }
   &__general{
     display: flex;
@@ -28,9 +36,12 @@
       flex-direction: column;
       gap: 3rem;
       h2{
+        width: 343px;
         font-size: 32px;
         font-weight: 500;
+        line-height: 47.52px;
         text-align: center;
+
       }
       input{
         background: #F8F8F8;

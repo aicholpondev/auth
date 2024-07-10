@@ -1,6 +1,7 @@
 import img from "../../assets/image/lorby-img.png";
 import {useFormik} from "formik";
 import { IoIosArrowBack } from "react-icons/io";
+import {NavLink} from "react-router-dom";
 
 export default function RegisterForm(){
     const formik = useFormik({
@@ -12,7 +13,10 @@ export default function RegisterForm(){
     })
     return(
         <section id="register">
-            <button className="register__goback"><IoIosArrowBack />Назад</button>
+            <NavLink to="/">
+                <button className="register__goback"><IoIosArrowBack />Назад</button>
+
+            </NavLink>
             <div className="register__general">
                 <div className="register__general--img">
                     <img src={img} alt="img"/>
@@ -20,7 +24,7 @@ export default function RegisterForm(){
                     <p>Твой личный репетитор</p>
                 </div>
                 <div className="register__general--login">
-                    <h2>Вэлком бэк!</h2>
+                    <h2>Создать аккаунт Lorby</h2>
                     <input
                         value={formik.values.email}
                         onChange ={formik.handleChange}

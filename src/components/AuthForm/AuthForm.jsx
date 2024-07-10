@@ -1,7 +1,6 @@
 import img from "../../assets/image/lorby-img.png";
 import {useFormik} from "formik";
- // import RegisterForm from "../RegisterForm/RegisterForm";
-
+import {NavLink} from "react-router-dom";
 
 export default function AuthForm(){
 
@@ -38,9 +37,11 @@ export default function AuthForm(){
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                     />
-                    <button>Войти</button>
+                    <h3>Войти</h3>
+                    <NavLink to="/registerform">
+                        <button >У меня еще нет аккаунта</button>
 
-                        <h3 >У меня еще нет аккаунта</h3>
+                    </NavLink>
 
 
 
