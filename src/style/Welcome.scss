@@ -1,0 +1,58 @@
+.welcome__general{
+  text-align: center;
+ padding-top: 2rem;
+  h1{
+    font-size: 38px;
+    font-weight: 600;
+  }
+  p{
+    font-size: 23px;
+    font-weight: 400;
+    padding: 1rem 0;
+  }
+  img{
+    text-align: center;
+  }
+  button{
+   border: 2px solid black;
+    padding: 13px 26px ;
+    border-radius: 12px ;
+    background: none;
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+  button:hover{
+    background: black;
+    color: white;
+
+  }
+  &--modal{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    h3{
+      font-size: 20px;
+      font-weight: 700;
+    }
+    p{
+      font-size: 16px;
+      font-weight: 500;
+      color: #767676;
+    }
+    button{
+     width: 80%;
+      margin: 0 auto;
+      padding: 13px 16px ;
+      border-radius: 12px ;
+      font-size: 17px;
+      font-weight: 500;
+      background: black;
+      color: white;
+    }
+    button:hover{
+      background: white;
+      color: black;
+      border: 2px solid black;
+    }
+  }
+}

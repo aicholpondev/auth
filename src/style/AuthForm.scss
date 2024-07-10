@@ -8,13 +8,13 @@
     padding-top: 3rem;
     &--img{
       h1{
-        font-size: 48px;
+        font-size: 45px;
         font-weight: 500;
         text-align: center;
         padding: 1rem 0;
       }
       p{
-        font-size: 28px;
+        font-size: 25px;
         font-weight: 400;
         text-align: center;
       }
@@ -22,7 +22,8 @@
     &--login{
       display: flex;
       flex-direction: column;
-      gap: 3rem;
+      gap: 4rem;
+
       h2{
         font-size: 32px;
         font-weight: 500;
@@ -33,16 +34,14 @@
         padding: 13px 16px 13px 16px;
         gap: 8px;
         border-radius: 12px ;
-        opacity: 0px;
         border: none;
-
+        position: relative;
       }
+
       h3{
         background: #292929;
         padding: 13px 16px 13px 16px;
-        gap: 0px;
         border-radius: 12px ;
-        opacity: 0px;
         color: white;
         font-size: 16px;
         font-weight: 500;
@@ -56,7 +55,14 @@
         text-align: center;
         background: none;
       }
+      &--password{
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
 
     }
   }
+
 }

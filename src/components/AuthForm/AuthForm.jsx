@@ -1,8 +1,14 @@
 import img from "../../assets/image/lorby-img.png";
 import {useFormik} from "formik";
+import {useState} from "react";
 import {NavLink} from "react-router-dom";
+import { FaRegEyeSlash } from "react-icons/fa";
+import { IoEyeOutline } from "react-icons/io5";
+
 
 export default function AuthForm(){
+    const [eye,setEye] = useState(false);
+
 
     const formik = useFormik({
         initialValues:{
@@ -12,6 +18,10 @@ export default function AuthForm(){
         }
     })
     console.log(formik)
+
+    const toggleEye = () => {
+        setEye(!eye);
+    }
     return(
         <section id="auth">
             <div className="auth__general">
@@ -28,15 +38,19 @@ export default function AuthForm(){
                         onBlur={formik.handleBlur}
                         id="email"
                         type="email"
-                        placeholder="Введи туда-сюда логин"/>
-                    <input
-                        id="password"
-                        type="password"
-                        placeholder="Пароль (тоже введи)"
-                        value={formik.values.password}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
+                        placeholder="Введи туда-сюда логин"
                     />
+                  <div className="auth__general--password">
+                      <input
+                          id="password"
+                          type="password"
+                          placeholder="Пароль (тоже введи)"
+                          value={formik.values.password}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                      />
+                      <span onClick={toggleEye}>{ eye ? <FaRegEyeSlash/> : <IoEyeOutline />}</span>
+                  </div>
                     <h3>Войти</h3>
                     <NavLink to="/registerform">
                         <button >У меня еще нет аккаунта</button>

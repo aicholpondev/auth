@@ -1,0 +1,59 @@
+.welcome__general {
+  text-align: center;
+  padding-top: 2rem;
+}
+.welcome__general h1 {
+  font-size: 38px;
+  font-weight: 600;
+}
+.welcome__general p {
+  font-size: 23px;
+  font-weight: 400;
+  padding: 1rem 0;
+}
+.welcome__general img {
+  text-align: center;
+}
+.welcome__general button {
+  border: 2px solid black;
+  padding: 13px 26px;
+  border-radius: 12px;
+  background: none;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+.welcome__general button:hover {
+  background: black;
+  color: white;
+}
+.welcome__general--modal {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.welcome__general--modal h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.welcome__general--modal p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #767676;
+}
+.welcome__general--modal button {
+  width: 80%;
+  margin: 0 auto;
+  padding: 13px 16px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 500;
+  background: black;
+  color: white;
+}
+.welcome__general--modal button:hover {
+  background: white;
+  color: black;
+  border: 2px solid black;
+}
+
+/*# sourceMappingURL=Welcome.css.map */
