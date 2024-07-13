@@ -1,23 +1,45 @@
 import img from "../../assets/image/lorby-img.png";
 import {useFormik} from "formik";
 import {useState} from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink,useNavigate} from "react-router-dom";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
+import {regisAuth} from "../../API";
+import {basicSchema} from "../../schemas";
 
 
 export default function AuthForm(){
     const [eye,setEye] = useState(false);
+    const navigate = useNavigate();
+    const onSubmit =async (values,actions) =>{
+        console.log(values)
+        console.log(actions)
+
+        const loginData ={
+            login:values.login,
+            password:values.password
+        }
+        try{
+            await regisAuth.login(loginData);
+            navigate('/welcomback')
+        }catch (e){
+            console.log('Error',e.response.data)
+        }
+        await new Promise((resolve) =>setTimeout(resolve,1000));
+        actions.resetForm();
+    }
+
 
 
     const formik = useFormik({
         initialValues:{
             email:"",
             password:"",
-
-        }
+        },
+        validationSchema:basicSchema,
+        onSubmit,
     })
-    console.log(formik)
+    // console.log(formik)
 
     const toggleEye = () => {
         setEye(!eye);
