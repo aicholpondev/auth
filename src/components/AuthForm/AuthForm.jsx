@@ -73,7 +73,7 @@ export default function AuthForm(){
                       />
                       <span onClick={toggleEye}>{ eye ? <FaRegEyeSlash/> : <IoEyeOutline />}</span>
                   </div>
-                    <h3>Войти</h3>
+                    <button type="submit">Войти</button>
                     <NavLink to="/registerform">
                         <button >У меня еще нет аккаунта</button>
 

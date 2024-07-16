@@ -31,7 +31,7 @@
       }
       input{
         background: #F8F8F8;
-        padding: 13px 16px 13px 16px;
+        padding: 16px 56px ;
         gap: 8px;
         border-radius: 12px ;
         border: none;
@@ -39,9 +39,9 @@
 
       }
 
-      h3{
+      button{
         background: #292929;
-        padding: 13px 16px 13px 16px;
+        padding: 13px 56px ;
         border-radius: 12px ;
         color: white;
         font-size: 16px;
@@ -50,12 +50,13 @@
 
       }
 
-      button{
-        font-size: 16px;
-        font-weight: 500;
-        text-align: center;
-        background: none;
-      }
+      //button{
+      //  font-size: 16px;
+      //  font-weight: 500;
+      //  text-align: center;
+      //  background: none;
+      //
+      //}
       &--password{
         position: relative;
         display: flex;

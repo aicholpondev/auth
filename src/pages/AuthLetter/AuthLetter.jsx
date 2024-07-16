@@ -1,6 +1,7 @@
 import LorbyForm from "../../components/LorbyForm/LorbyForm";
 import Modal from "react-modal";
 import {useState} from "react";
+import {NavLink} from "react-router-dom";
 
 
 export  default function AuthLetter(){
@@ -17,7 +18,10 @@ export  default function AuthLetter(){
     return(
         <div className="auth__general">
             <LorbyForm/>
-            <button className="goBack">Назад</button>
+            <NavLink to="/registerform" >
+                <button className="goBack">Назад</button>
+
+            </NavLink>
             <div className="auth__general--text">
                 <h3>Выслали письмо со ссылкой для завершения регистрации на example@gmail.com</h3>
                 <p>Если письмо не пришло, не спеши ждать совиную почту - лучше <span>проверь ящик “Спам”</span></p>

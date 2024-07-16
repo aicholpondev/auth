@@ -55,7 +55,11 @@ export default function RegisterForm(){
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                     />
-                    <button>Далее</button>
+
+                    <NavLink to="/authletter">
+                        <button>Далее</button>
+
+                    </NavLink>
                 </div>
             </div>
         </section>
