@@ -1,14 +1,45 @@
 import img from "../../assets/image/lorby-img.png";
 import {useFormik} from "formik";
 import { IoIosArrowBack } from "react-icons/io";
-import {NavLink} from "react-router-dom";
+import {NavLink,useNavigate} from "react-router-dom";
+import {postRegister} from "../../API/index"
+import {basicSchema} from "../../schemas";
+
 
 export default function RegisterForm(){
+
+    const navigate = useNavigate();
+    const handleRegister = async (data) => {
+        try {
+            const response = await postRegister(data);
+            console.log(response.data);
+        } catch (err) {
+            if (!err?.response) {
+                console.log(err);
+            }
+        }
+    };
+
+
+
     const formik = useFormik({
         initialValues:{
             email:"",
             password:"",
+            confirmPassword:"",
+            login:"",
 
+
+        },
+        validationSchema:basicSchema,
+        onSubmit:()=>{
+            handleRegister({email: formik.values.email,
+            username:formik.values.login,
+            password: formik.values.password})
+            // sentRegister()
+            console.log("submit")
+
+            navigate("/authletter")
         }
     })
     return(
@@ -23,7 +54,8 @@ export default function RegisterForm(){
                     <h1>Lorby</h1>
                     <p>Твой личный репетитор</p>
                 </div>
-                <div className="register__general--login">
+                <form  onSubmit={formik.handleSubmit}
+                    className="register__general--login">
                     <h2>Создать аккаунт Lorby</h2>
                     <input
                         value={formik.values.email}
@@ -37,30 +69,32 @@ export default function RegisterForm(){
                         onChange ={formik.handleChange}
                         onBlur={formik.handleBlur}
                         id="login"
-                        type="email"
+                        type="text"
                         placeholder="Придумай логин"/>
                     <input
                         id="password"
-                        type="password"
+                        type="text"
                         placeholder="Создай пароль"
                         value={formik.values.password}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                     />
                     <input
-                        id="password"
-                        type="password"
+                        id="confirmPassword"
+                        type="text"
                         placeholder="Повтори пароль"
-                        value={formik.values.password}
+                        value={formik.values.confirmPassword}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
+
                     />
 
-                    <NavLink to="/authletter">
-                        <button>Далее</button>
+                    {/*<NavLink to="/authletter">*/}
 
-                    </NavLink>
-                </div>
+                        <button type="submit">Далее</button>
+
+                    {/*</NavLink>*/}
+                </form>
             </div>
         </section>
     )

@@ -4,30 +4,13 @@ import {useState} from "react";
 import {NavLink,useNavigate} from "react-router-dom";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
-import {regisAuth} from "../../API";
 import {basicSchema} from "../../schemas";
+import {validateElement} from "react-modal/lib/helpers/ariaAppHider";
 
 
 export default function AuthForm(){
     const [eye,setEye] = useState(false);
     const navigate = useNavigate();
-    const onSubmit =async (values,actions) =>{
-        console.log(values)
-        console.log(actions)
-
-        const loginData ={
-            login:values.login,
-            password:values.password
-        }
-        try{
-            await regisAuth.login(loginData);
-            navigate('/welcomback')
-        }catch (e){
-            console.log('Error',e.response.data)
-        }
-        await new Promise((resolve) =>setTimeout(resolve,1000));
-        actions.resetForm();
-    }
 
 
 
@@ -37,7 +20,10 @@ export default function AuthForm(){
             password:"",
         },
         validationSchema:basicSchema,
-        onSubmit,
+        onSubmit:()=>{
+            navigate("/authletter")
+            console.log("submit")
+        }
     })
     // console.log(formik)
 
@@ -61,6 +47,7 @@ export default function AuthForm(){
                         id="email"
                         type="email"
                         placeholder="Введи туда-сюда логин"
+
                     />
                   <div className="auth__general--password">
                       <input
