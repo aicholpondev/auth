@@ -44,6 +44,15 @@
         text-align: center;
 
       }
+      &__password{
+        position: relative;
+        display: flex;
+        align-items: center;
+        background: #F8F8F8;
+        border-radius: 12px ;
+        border: none;
+
+      }
       input{
         background: #F8F8F8;
         padding: 13px 16px 13px 16px;
@@ -52,11 +61,27 @@
         border: none;
 
       }
+      span{
+        position: absolute;
+        top: 60%;
+        right: 20px;
+        transform: translateY(-40%);
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        font-size: 20px;
+      }
+
       button{
         background: #292929;
         padding: 13px 150px;
         border-radius: 12px ;
         color: white;
+      }
+      button:hover{
+        border: 2px solid black;
+        color: black;
+        background: white;
       }
       h3{
         font-size: 16px;

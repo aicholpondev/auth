@@ -5,31 +5,50 @@ import {NavLink,useNavigate} from "react-router-dom";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
 import {basicSchema} from "../../schemas";
+import {postLogin} from "../../API";
 import {validateElement} from "react-modal/lib/helpers/ariaAppHider";
 
 
 export default function AuthForm(){
-    const [eye,setEye] = useState(false);
+    const [visiblePasswordEye, setVisiblePasswordEye] = useState(false);
     const navigate = useNavigate();
+
+    const handleLogin =async (data) =>{
+       try{
+           const response = await postLogin(data);
+           console.log(response.data)
+       } catch (err){
+           if (!err?.response){
+               console.log(err);
+           }
+       }
+    };
+
+    const updatePassEye = () => {
+        setVisiblePasswordEye(!visiblePasswordEye);
+    }
 
 
 
     const formik = useFormik({
         initialValues:{
-            email:"",
+            login:"",
             password:"",
         },
         validationSchema:basicSchema,
         onSubmit:()=>{
-            navigate("/authletter")
+            handleLogin({
+                username:formik.values.login,
+                password: formik.values.password
+            })
             console.log("submit")
+            navigate("/welcome")
+
         }
     })
     // console.log(formik)
 
-    const toggleEye = () => {
-        setEye(!eye);
-    }
+
     return(
         <section id="auth">
             <div className="auth__general">
@@ -38,27 +57,32 @@ export default function AuthForm(){
                     <h1>Lorby</h1>
                     <p>Твой личный репетитор</p>
                 </div>
-                <div className="auth__general--login">
+                <form
+                    onSubmit={formik.handleSubmit}
+                    className="auth__general--login">
                     <h2>Вэлком бэк!</h2>
                     <input
-                        value={formik.values.email}
+                        value={formik.values.login}
                         onChange ={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        id="email"
-                        type="email"
+                        id="login"
+                        type="text"
                         placeholder="Введи туда-сюда логин"
 
                     />
-                  <div className="auth__general--password">
+                  <div className="auth__general--login__password">
                       <input
                           id="password"
-                          type="password"
+                          name="password"
+                          type={visiblePasswordEye ? "text" : "password"}
                           placeholder="Пароль (тоже введи)"
                           value={formik.values.password}
                           onChange={formik.handleChange}
                           onBlur={formik.handleBlur}
                       />
-                      <span onClick={toggleEye}>{ eye ? <FaRegEyeSlash/> : <IoEyeOutline />}</span>
+                      <span onClick={updatePassEye}>
+                        {visiblePasswordEye ? <IoEyeOutline />: <FaRegEyeSlash/> }
+                    </span>
                   </div>
                     <button type="submit">Войти</button>
                     <NavLink to="/registerform">
@@ -69,7 +93,7 @@ export default function AuthForm(){
 
 
 
-                </div>
+                </form>
             </div>
         </section>
     )

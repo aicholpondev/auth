@@ -1,12 +1,26 @@
 import img from "../../assets/image/lorby-img.png";
 import {useFormik} from "formik";
+import {useState} from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import {NavLink,useNavigate} from "react-router-dom";
 import {postRegister} from "../../API/index"
 import {basicSchema} from "../../schemas";
+import { FaRegEyeSlash } from "react-icons/fa";
+import { IoEyeOutline } from "react-icons/io5";
 
 
 export default function RegisterForm(){
+    const [visiblePasswordEye, setVisiblePasswordEye] = useState(false);
+    const [visibleConfirmEye, setVisibleConfirmEye] = useState(false);
+
+    // Обработчики переключения видимости пароля
+    const updatePassEye = () => {
+        setVisiblePasswordEye(!visiblePasswordEye);
+    }
+
+    const updateConfEye = () => {
+        setVisibleConfirmEye(!visibleConfirmEye);
+    }
 
     const navigate = useNavigate();
     const handleRegister = async (data) => {
@@ -28,8 +42,6 @@ export default function RegisterForm(){
             password:"",
             confirmPassword:"",
             login:"",
-
-
         },
         validationSchema:basicSchema,
         onSubmit:()=>{
@@ -71,29 +83,38 @@ export default function RegisterForm(){
                         id="login"
                         type="text"
                         placeholder="Придумай логин"/>
-                    <input
-                        id="password"
-                        type="text"
-                        placeholder="Создай пароль"
-                        value={formik.values.password}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                    />
-                    <input
-                        id="confirmPassword"
-                        type="text"
-                        placeholder="Повтори пароль"
-                        value={formik.values.confirmPassword}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
+                   <div className="register__general--login__password">
+                       <input
+                           id="password"
+                           name="password"
+                           type={visiblePasswordEye ? "text" : "password"}
+                           placeholder="Создай пароль"
+                           value={formik.values.password}
+                           onChange={formik.handleChange}
+                           onBlur={formik.handleBlur}
+                       />
+                       <span onClick={updatePassEye}>
+                        {visiblePasswordEye ? <IoEyeOutline />: <FaRegEyeSlash/> }
+                    </span>
+                   </div>
+                   <div className="register__general--login__password">
+                       <input
+                           id="confirmPassword"
+                           name="confirmPassword"
+                           type={visibleConfirmEye ? "text" : "password"}
+                           placeholder="Повтори пароль"
+                           value={formik.values.confirmPassword}
+                           onChange={formik.handleChange}
+                           onBlur={formik.handleBlur}
+                       />
+                       <span onClick={updateConfEye}>
+                           {visibleConfirmEye ? <IoEyeOutline />: <FaRegEyeSlash/>}
+                       </span>
+                   </div>
 
-                    />
-
-                    {/*<NavLink to="/authletter">*/}
 
                         <button type="submit">Далее</button>
 
-                    {/*</NavLink>*/}
                 </form>
             </div>
         </section>

@@ -43,6 +43,14 @@
   line-height: 47.52px;
   text-align: center;
 }
+.register__general--login__password {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #F8F8F8;
+  border-radius: 12px;
+  border: none;
+}
 .register__general--login input {
   background: #F8F8F8;
   padding: 13px 16px 13px 16px;
@@ -50,11 +58,26 @@
   border-radius: 12px;
   border: none;
 }
+.register__general--login span {
+  position: absolute;
+  top: 60%;
+  right: 20px;
+  transform: translateY(-40%);
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 20px;
+}
 .register__general--login button {
   background: #292929;
   padding: 13px 150px;
   border-radius: 12px;
   color: white;
+}
+.register__general--login button:hover {
+  border: 2px solid black;
+  color: black;
+  background: white;
 }
 .register__general--login h3 {
   font-size: 16px;
